@@ -19,7 +19,6 @@ import {
 } from "./controllers/user.js";
 import { getFieldById } from "./interactors/field.js";
 import { authenticate } from "./middlewares/auth.js";
-import Field from "./models/field.js";
 
 export default (app) => {
   app.get("/healthz", (_, res) => {
