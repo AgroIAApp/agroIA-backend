@@ -11,6 +11,15 @@ const PROBLEMA_MEDIO = (index, size) =>
     : Math.random() * 0.15 + 0.85;
 
 export const mockAddSateliteData = (plots) => {
+  const valRandomIndex = Math.random();
+  const problematicIndex =
+    valRandomIndex < 0.25
+      ? "ndvi"
+      : valRandomIndex < 0.5
+      ? "ndsi"
+      : valRandomIndex < 0.75
+      ? "ndmi"
+      : "";
   const valRandom = Math.random();
   const ESTADO_CAMPO =
     valRandom < 0.25
@@ -21,9 +30,18 @@ export const mockAddSateliteData = (plots) => {
       ? PROBLEMA_ARRIBA
       : PROBLEMA_MEDIO;
   return plots.map((plot, index) => ({
-    humidity: Math.random(),
     color: Math.floor(Math.random() * 16777215).toString(16),
-    frost: Math.random(),
-    ndvi: ESTADO_CAMPO(index, plots.length),
+    ndmi:
+      problematicIndex == "ndmi"
+        ? ESTADO_CAMPO(index, plots.length)
+        : SANO(1, 1),
+    ndsi:
+      problematicIndex == "ndsi"
+        ? 1 - ESTADO_CAMPO(index, plots.length)
+        : SANO(1, 1),
+    ndvi:
+      problematicIndex == "ndvi"
+        ? ESTADO_CAMPO(index, plots.length)
+        : SANO(1, 1),
   }));
 };

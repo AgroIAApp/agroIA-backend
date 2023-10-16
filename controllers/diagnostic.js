@@ -3,32 +3,19 @@ import { changeFieldAndSave } from "../helpers/entities.js";
 import { catchRequest, endRequest } from "../helpers/request.js";
 import { getFieldById } from "../interactors/field.js";
 
-const findNeighbours = (index, array2d, el) => {
-  const rowIndex = parseInt(index / width);
-  const columnIndex = array2d[rowIndex].findIndex((c) => c === index);
-  const right = array2d[rowIndex][columnIndex + 1];
-  const left = array2d[rowIndex][columnIndex - 1];
-  const bottom = array2d[rowIndex - 1]?.[columnIndex];
-  const top = array2d[rowIndex + 1]?.[columnIndex];
-  const neighbours = [right, left, bottom, top]
-    .filter((n) => n !== undefined)
-    .forEach((n) => highlight(n));
-};
-
 export const addDiagnosic = async (req, res) => {
   try {
-    const { diagnostic, lat, lon } = req.body;
+    const { diagnostic } = req.body;
     const fieldId = req.params.id;
     var field = await getFieldById(fieldId);
-
-    const plotWithDiagnostic = 666;
-    const finalAnswer = [];
-    const itemsToInvestigate = [];
-
-    finalAnswer.push(plotWithDiagnostic);
-    itemsToInvestigate.push(plotWithDiagnostic);
-
-    await changeFieldAndSave(field, "history", history);
+    const updatedPlots = field.plots.map((plot) => {
+      const newElement = plot.history[plot.history.length - 1];
+      if (newElement.diagnostics == DIAGNOSTICS_KEYS.PROBLEM) {
+        newElement.diagnostics = diagnostic;
+        plot.history.push(newElement);
+      }
+    });
+    await changeFieldAndSave(field, "plots", updatedPlots);
     field = await getFieldById(fieldId);
     endRequest({
       response: { field },

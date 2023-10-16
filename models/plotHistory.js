@@ -7,10 +7,10 @@ import {
 
 export const schema = new Schema(
   {
-    humidity: Number,
     color: String,
+    ndmi: Number,
     ndvi: Number,
-    frost: Number,
+    ndsi: Number,
     diagnostics: {
       type: String,
       enum: Object.values(DIAGNOSTICS_KEYS),
