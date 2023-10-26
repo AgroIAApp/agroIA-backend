@@ -7,22 +7,20 @@ export const DIAGNOSTICS_KEYS = {
   FROSTING: "frosting",
   PROBLEM: "problem",
   GOOD: "good",
-  VERY_GOOD: "very-good",
+  VERY_GOOD: "very_good",
   EXCELENT: "excelent",
   NONE: "none",
-  FAL_NUT_1: "fal_nut_1",
-  FAL_NUT_2: "fal_nut_2",
-  PLAG_1: "plag_1",
-  PLAG_2: "plag_2",
+  FAL_NUT: "fal_nut",
+  MALEZA: "maleza",
+  INSECTOS: "insectos",
 };
 
 export const SOLUTION_KEYS = {
   [DIAGNOSTICS_KEYS.DEHYDRATION]: "ACONDICIONADOR DE SUELO",
   [DIAGNOSTICS_KEYS.FROSTING]: "TELA ANTI HELADA",
-  [DIAGNOSTICS_KEYS.FAL_NUT_1]: "NUTRIENTE 1",
-  [DIAGNOSTICS_KEYS.FAL_NUT_2]: "NUTRIENTE 2",
-  [DIAGNOSTICS_KEYS.PLAG_1]: "MATA PLAGA 1",
-  [DIAGNOSTICS_KEYS.PLAG_2]: "MATA PLAGA 2",
+  [DIAGNOSTICS_KEYS.FAL_NUT]: "FERTILIZANTE",
+  [DIAGNOSTICS_KEYS.MALEZA]: "HERBICIDA",
+  [DIAGNOSTICS_KEYS.INSECTOS]: "INSECTICIDA",
 };
 
 export const GROWTH_STAGES_KEYS = {
