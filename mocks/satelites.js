@@ -1,8 +1,8 @@
 const SANO = (index, size) => Math.random() * 0.15 + 0.85;
 const PROBLEMA_ABAJO = (index, size) =>
-  index < size * 0.7 ? Math.random() * 0.15 + 0.85 : Math.random() * 0.15;
+  index < size * 0.76338 ? Math.random() * 0.15 + 0.85 : Math.random() * 0.15;
 const PROBLEMA_ARRIBA = (index, size) =>
-  index < size * 0.3 ? Math.random() * 0.15 : Math.random() * 0.15 + 0.85;
+  index < size * 0.31592 ? Math.random() * 0.15 : Math.random() * 0.15 + 0.85;
 // const PROBLEMA_MEDIO = (index, size) =>
 //   index < size * 0.4
 //     ? Math.random() * 0.15 + 0.85
