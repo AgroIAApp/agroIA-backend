@@ -38,7 +38,7 @@ export const mockAddSateliteData = (plots) => {
     ndsi:
       problematicIndex == "ndsi"
         ? 1 - ESTADO_CAMPO(index, plots.length)
-        : SANO(1, 1),
+        : 1 - SANO(1, 1),
     ndvi:
       problematicIndex == "ndvi"
         ? ESTADO_CAMPO(index, plots.length)
