@@ -23,6 +23,7 @@ export const schema = new Schema(
       type: String,
       enum: Object.values(CROP_TYPES_KEYS),
     },
+    fecha: { type: Date, default: Date.now },
   },
   { timestamps: true }
 );

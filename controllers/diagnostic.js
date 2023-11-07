@@ -12,8 +12,8 @@ export const addDiagnosic = async (req, res) => {
       const newElement = plot.history[plot.history.length - 1];
       if (newElement.diagnostics == DIAGNOSTICS_KEYS.PROBLEM) {
         newElement.diagnostics = diagnostic;
-        plot.history.push(newElement);
       }
+      return plot;
     });
     await changeFieldAndSave(field, "plots", updatedPlots);
     field = await getFieldById(fieldId);
